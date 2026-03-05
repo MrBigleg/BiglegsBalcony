@@ -1,0 +1,58 @@
+---
+import Wide from "@/layouts/Wide.astro";
+import { getCollection } from "astro:content";
+
+// Fetch all directory items
+const allListings = await getCollection("directory");
+
+// Extract unique provinces
+const provinces = [
+    ...new Set(allListings.map((item) => item.data.province).filter(Boolean)),
+].sort();
+---
+
+<Wide>
+    <div class="pt-10 pb-20 not-prose">
+        <div class="mb-10 text-center">
+            <h1
+                class="text-4xl font-bold tracking-tight mb-4 text-zinc-900 dark:text-zinc-50"
+            >
+                Regions & Provinces
+            </h1>
+            <p
+                class="text-zinc-500 dark:text-zinc-400 text-lg max-w-2xl mx-auto"
+            >
+                Explore Thailand street art by location.
+            </p>
+        </div>
+
+        <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+        >
+            {
+                provinces.map((province) => {
+                    // Count how many artworks are in this province
+                    const count = allListings.filter(
+                        (l) => l.data.province === province,
+                    ).length;
+
+                    return (
+                        <a
+                            href={`/province/${String(province || "")
+                                .toLowerCase()
+                                .replace(/\s+/g, "-")}`}
+                            class="group relative overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 flex flex-col justify-center items-center text-center transition-all hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-lg hover:-translate-y-1"
+                        >
+                            <h2 class="text-2xl font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                {province || "Unknown"}
+                            </h2>
+                            <p class="text-sm text-zinc-500 mt-2">
+                                {count} {count === 1 ? "artwork" : "artworks"}
+                            </p>
+                        </a>
+                    );
+                })
+            }
+        </div>
+    </div>
+</Wide>

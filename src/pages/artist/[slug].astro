@@ -1,0 +1,72 @@
+---
+import Wide from "@/layouts/Wide.astro";
+import { getCollection } from "astro:content";
+import PureGrid from "@/components/directory/PureGrid.astro";
+
+export async function getStaticPaths() {
+    const allListings = await getCollection("directory");
+
+    // Extract unique artists
+    const artists = [
+        ...new Set(allListings.map((item) => item.data.artist).filter(Boolean)),
+    ];
+
+    return artists.map((artist) => {
+        const artistName = String(artist);
+        return {
+            params: { slug: artistName.toLowerCase().replace(/\s+/g, "-") },
+            props: {
+                artist,
+                listings: allListings.filter(
+                    (item) => item.data.artist === artist,
+                ),
+            },
+        };
+    });
+}
+
+const { artist, listings } = Astro.props;
+---
+
+<Wide>
+    <div class="pt-10 pb-10 not-prose">
+        <div class="mb-10 border-b border-zinc-200 dark:border-zinc-800 pb-10">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-6">
+                    <div
+                        class="h-20 w-20 bg-zinc-200 dark:bg-zinc-800 rounded-full flex items-center justify-center text-2xl font-bold text-zinc-500"
+                    >
+                        {artist?.charAt(0) || "?"}
+                    </div>
+                    <div>
+                        <h1
+                            class="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50"
+                        >
+                            {artist || "Unknown"}
+                        </h1>
+                        <p class="text-zinc-500 dark:text-zinc-400 mt-2">
+                            Showing {listings.length} approved {
+                                listings.length === 1 ? "artwork" : "artworks"
+                            } by this artist.
+                        </p>
+                    </div>
+                </div>
+                <a
+                    href="/artists"
+                    class="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                    &larr; Back to Artists
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <h2
+                class="text-2xl font-semibold mb-6 text-zinc-800 dark:text-zinc-100"
+            >
+                Approved Artworks
+            </h2>
+            <PureGrid listings={listings} />
+        </div>
+    </div>
+</Wide>

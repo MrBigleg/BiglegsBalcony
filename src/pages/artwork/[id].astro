@@ -1,0 +1,218 @@
+---
+import Wide from "@/layouts/Wide.astro";
+import { getCollection, getEntry } from "astro:content";
+import { Image } from "astro:assets";
+import {
+    MapPin,
+    User,
+    Calendar,
+    Tag,
+    ShieldCheck,
+    AlertTriangle,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export async function getStaticPaths() {
+    const allListings = await getCollection("directory");
+    return allListings.map((item) => ({
+        params: { id: item.id },
+        props: { item },
+    }));
+}
+
+const { item } = Astro.props;
+const data = item.data;
+
+const hasVerified = data.tags?.includes("verified");
+const hasAtRisk = data.tags?.includes("at-risk");
+const isPermanent = data.tags?.includes("permanent");
+
+// Placeholder logic for the map link from the BiglegsBalcony spec.
+// In a real database this would be a Google Maps place_id URL.
+const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.province || "Thailand")}`;
+---
+
+<Wide>
+    <div class="pt-6 pb-20 not-prose">
+        <div class="mb-4">
+            <a
+                href="/"
+                class="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+            >
+                &larr; Back to Gallery
+            </a>
+        </div>
+
+        <!-- Media Section -->
+        <div
+            class="w-full bg-zinc-900 rounded-2xl overflow-hidden shadow-2xl mb-8 aspect-[16/9] md:aspect-[21/9] flex items-center justify-center relative"
+        >
+            {
+                data.image ? (
+                    <Image
+                        src={data.image}
+                        alt={data.title || "Artwork Image"}
+                        class="w-full h-full object-cover opacity-90"
+                    />
+                ) : (
+                    <div class="text-zinc-600 flex flex-col items-center">
+                        <p>No media available</p>
+                    </div>
+                )
+            }
+
+            {/* Featured Badge Overlay */}
+            {
+                data.featured && (
+                    <div class="absolute top-4 left-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                        Featured
+                    </div>
+                )
+            }
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <!-- Details Column -->
+            <div class="lg:col-span-2 space-y-8">
+                <div>
+                    <h1
+                        class="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-2"
+                    >
+                        {data.title || "Untitled"}
+                    </h1>
+                    <p
+                        class="text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed"
+                    >
+                        {data.description}
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-3">
+                    {
+                        data.tags?.map((tag: string) => (
+                            <span class="inline-flex items-center rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                                {tag}
+                            </span>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- Metadata Panel Column -->
+            <div
+                class="bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 h-fit space-y-6"
+            >
+                <h3
+                    class="text-lg font-semibold text-zinc-900 dark:text-zinc-100 border-b border-zinc-200 dark:border-zinc-800 pb-2"
+                >
+                    Artwork Metadata
+                </h3>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <User
+                            size={20}
+                            className="text-zinc-400 shrink-0 mt-0.5"
+                        />
+                        <div>
+                            <p
+                                class="text-sm font-medium text-zinc-500 dark:text-zinc-400"
+                            >
+                                Artist
+                            </p>
+                            <a
+                                href={`/artist/${String(data.artist || "")
+                                    .toLowerCase()
+                                    .replace(/\s+/g, "-")}`}
+                                class="text-base font-semibold text-zinc-900 dark:text-zinc-100 hover:text-blue-600 transition-colors"
+                            >
+                                {data.artist || "Unknown Artist"}
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <MapPin
+                            size={20}
+                            className="text-zinc-400 shrink-0 mt-0.5"
+                        />
+                        <div>
+                            <p
+                                class="text-sm font-medium text-zinc-500 dark:text-zinc-400"
+                            >
+                                Location
+                            </p>
+                            <a
+                                href={`/province/${String(data.province || "")
+                                    .toLowerCase()
+                                    .replace(/\s+/g, "-")}`}
+                                class="text-base font-semibold text-zinc-900 dark:text-zinc-100 hover:text-blue-600 transition-colors"
+                            >
+                                {data.province || "Unknown Province"}
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        {
+                            hasVerified ? (
+                                <ShieldCheck
+                                    size={20}
+                                    className="text-green-500 shrink-0 mt-0.5"
+                                />
+                            ) : hasAtRisk ? (
+                                <AlertTriangle
+                                    size={20}
+                                    className="text-red-500 shrink-0 mt-0.5"
+                                />
+                            ) : (
+                                <Tag
+                                    size={20}
+                                    className="text-zinc-400 shrink-0 mt-0.5"
+                                />
+                            )
+                        }
+
+                        <div>
+                            <p
+                                class="text-sm font-medium text-zinc-500 dark:text-zinc-400"
+                            >
+                                Status
+                            </p>
+                            <p
+                                class="text-base font-semibold text-zinc-900 dark:text-zinc-100"
+                            >
+                                {
+                                    hasVerified
+                                        ? "Verified Location"
+                                        : hasAtRisk
+                                          ? "At Risk"
+                                          : isPermanent
+                                            ? "Permanent"
+                                            : "Unverified"
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-zinc-200 dark:border-zinc-800">
+                    <Button
+                        client:load
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                        asChild
+                    >
+                        <a
+                            href={mapsLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <MapPin size={16} className="mr-2" />
+                            View on Google Maps
+                        </a>
+                    </Button>
+                </div>
+            </div>
+        </div>
+    </div>
+</Wide>

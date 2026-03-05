@@ -1,161 +1,97 @@
 [
   {
-    "id": "calm",
-    "title": "Calm",
-    "image": "../images/calm.png",
+    "id": "alex-face-mardi-red-tortoise",
+    "title": "Mardi as Red Tortoise",
+    "image": "../../assets/artwork/alex-face-mardi-red-tortoise.jpg",
     "featured": true,
     "tags": [
-      "breathing",
-      "sleep",
-      "meditation"
+      "permanent",
+      "verified"
     ],
-    "description": "Offers guided meditations, sleep stories, and calming music to help users relax and improve sleep.",
-    "link": "https://minteddirectory.com"
+    "description": "Alex Face. Iconic heritage mural in Phuket Old Town depicting Mardi as a traditional sweet cake.",
+    "link": "/artwork/alex-face-mardi-red-tortoise",
+    "artist": "Alex Face",
+    "province": "Phuket"
   },
   {
-    "id": "headspace",
-    "title": "Squirtle",
-    "image": "../images/007.png",
+    "id": "roa-elephants-song-wat",
+    "title": "Monochrome Elephants",
+    "image": "../../assets/artwork/roa-elephants-song-wat.jpg",
     "tags": [
-      "breathing",
-      "sleep",
-      "meditation"
+      "permanent",
+      "verified"
     ],
-    "description": "Provides a variety of guided meditations, sleep content, and mindfulness exercises for daily use.",
-    "link": "https://minteddirectory.com"
+    "description": "ROA. Massive monochrome elephants on Song Wat Road, painted during Bukruk. Best viewed from the river.",
+    "link": "/artwork/roa-elephants-song-wat",
+    "artist": "ROA",
+    "province": "Bangkok"
   },
   {
-    "id": "insight-timer",
-    "title": "Insight Timer",
-    "image": "",
-    "description": "Features a vast library of guided meditations, talks, and music tracks from teachers worldwide.",
-    "link": "https://minteddirectory.com"
+    "id": "mue-bon-pukruk-canal",
+    "title": "Pukruk Bird",
+    "image": "../../assets/artwork/mue-bon-pukruk-canal.jpg",
+    "description": "Mue Bon. Signature cartoon bird character along the Khlong Saen Saep canal path.",
+    "link": "/artwork/mue-bon-pukruk-canal",
+    "artist": "Mue Bon",
+    "province": "Bangkok"
   },
   {
-    "id": "buddhify",
-    "title": "Buddhify",
-    "image": "",
-    "description": "Customizable meditation sessions for various situations, with a one-time payment model.",
-    "link": "https://minteddirectory.com"
-  },
-  {
-    "id": "smiling-mind",
-    "title": "Smiling Mind",
-    "image": "",
-    "description": "A non-profit app designed by psychologists, offering mindfulness programs for different age groups and settings.",
-    "link": "https://minteddirectory.com"
-  },
-  {
-    "id": "meditopia",
-    "title": "Meditopia",
+    "id": "vhils-portuguese-embassy",
+    "title": "Scratching the Surface",
+    "image": "../../assets/artwork/vhils-portuguese-embassy.jpg",
     "tags": [
-      "breathing",
-      "meditation"
+      "permanent",
+      "verified"
     ],
-    "image": "",
-    "description": "Focuses on sleep and stress reduction with guided meditations in multiple languages.",
-    "link": "https://minteddirectory.com"
+    "description": "Vhils. Rare relief portrait carved directly into the wall of the Portuguese Embassy.",
+    "link": "/artwork/vhils-portuguese-embassy",
+    "artist": "Vhils",
+    "province": "Bangkok"
   },
   {
-    "id": "happier",
-    "title": "10% Happier",
+    "id": "msv-crew-womens-prison",
+    "title": "Prison Wall Collaborative",
+    "image": "../../assets/artwork/msv-crew-womens-prison.jpg",
     "tags": [
-      "yoga",
-      "meditation"
+      "verified"
     ],
-    "image": "",
-    "description": "Teaches meditation through videos, guided sessions, and a personal coaching feature.",
-    "link": "https://minteddirectory.com"
+    "description": "MSV Crew. Large scale social commentary spanning the exterior walls of the abandoned Chiang Mai Women's Prison.",
+    "link": "/artwork/msv-crew-womens-prison",
+    "artist": "MSV Crew",
+    "province": "Chiang Mai"
   },
   {
-    "id": "simple-habit",
-    "title": "Simple Habit",
-    "image": "",
-    "description": "Offers short, 5-minute meditations for busy individuals, with sessions led by mindfulness experts.",
-    "link": "https://minteddirectory.com"
+    "id": "alex-face-chok-chai-4",
+    "title": "Lud Pon Festival Walls",
+    "tags": [
+      "at-risk"
+    ],
+    "image": "../../assets/artwork/alex-face-chok-chai-4.jpg",
+    "description": "Alex Face & Himbad. Dystopian murals surrounding the abandoned Chok Chai 4 fresh market.",
+    "link": "/artwork/alex-face-chok-chai-4",
+    "artist": "Alex Face",
+    "province": "Bangkok"
   },
   {
-    "id": "aura",
-    "title": "Aura",
-    "image": "",
-    "description": "Personalized mindfulness meditations, stories, and coaching to reduce stress and anxiety.",
-    "link": "https://minteddirectory.com"
+    "id": "pichit-paidan-otaw",
+    "title": "Uncle and Auntie Selling O-Taw",
+    "tags": [
+      "permanent",
+      "verified"
+    ],
+    "image": "../../assets/artwork/pichit-paidan-otaw.jpg",
+    "description": "Pichit Paidan. Food heritage mural on Dibuk Road, Phuket, celebrating UNESCO gastronomy status.",
+    "link": "/artwork/pichit-paidan-otaw",
+    "artist": "Pichit Paidan",
+    "province": "Phuket"
   },
   {
-    "id": "breath",
-    "title": "Breethe",
-    "image": "",
-    "description": "Provides guided meditations, inspirational talks, and supportive community features.",
-    "link": "https://minteddirectory.com"
-  },
-  {
-    "id": "mylife",
-    "title": "MyLife Meditation",
-    "image": "",
-    "description": "Offers mood tracking and personalized meditation recommendations based on user emotions.",
-    "link": "https://minteddirectory.com"
-  },
-  {
-    "id": "waking-up",
-    "title": "Waking Up",
-    "image": "",
-    "description": "Created by neuroscientist Sam Harris, offering guided meditations and philosophical insights.",
-    "link": "https://minteddirectory.com"
-  },
-  {
-    "id": "medito",
-    "title": "Medito",
-    "image": "",
-    "description": "A free meditation app with a variety of guided sessions and customizable features.",
-    "link": "https://minteddirectory.com"
-  },
-  {
-    "id": "healthy-minds-program",
-    "title": "Healthy Minds Program",
-    "image": "",
-    "description": "Focuses on increasing awareness and well-being through guided meditations and podcast-style content.",
-    "link": "https://minteddirectory.com"
-  },
-  {
-    "id": "sattva",
-    "title": "Sattva",
-    "image": "",
-    "description": "Offers guided meditations, chants, and mantras, with a focus on ancient Vedic principles.",
-    "link": "https://minteddirectory.com"
-  },
-  {
-    "id": "mindfullness",
-    "title": "Mindfulness.com",
-    "image": "",
-    "description": "Provides a range of mindfulness meditations and courses for beginners and experienced practitioners.",
-    "link": "https://minteddirectory.com"
-  },
-  {
-    "id": "oak",
-    "title": "Oak",
-    "image": "",
-    "description": "A free meditation and breathing app with customizable sessions and progress tracking.",
-    "link": "https://minteddirectory.com"
-  },
-  {
-    "id": "stop-breathe-think",
-    "title": "Stop, Breathe & Think",
-    "image": "",
-    "description": "Offers mindfulness and meditation activities tailored to user emotions and experiences.",
-    "link": "https://minteddirectory.com"
-  },
-  {
-    "id": "mindfullness-app",
-    "title": "The Mindfulness App",
-    "image": "",
-    "description": "Provides guided and silent meditations with customizable session lengths and reminders.",
-    "link": "https://minteddirectory.com"
-  },
-  {
-    "id": "zenfie",
-    "title": "Zenfie",
-    "image": "",
-    "description": "Offers a variety of meditation techniques, including breathwork, sound baths, and guided journeys.",
-    "link": "https://minteddirectory.com"
+    "id": "sanchai-green-men",
+    "title": "Green Men of Nimman",
+    "image": "../../assets/artwork/sanchai-green-men.jpg",
+    "description": "Sanchai. Hidden characters in the condo car parks and sois of Nimmanhaemin, Chiang Mai.",
+    "link": "/artwork/sanchai-green-men",
+    "artist": "Sanchai",
+    "province": "Chiang Mai"
   }
 ]

@@ -1,89 +1,72 @@
-# available directory themes:
-# spearmint, peppermint, hemingway, brookmint
 theme = 'brookmint'
 
 [general]
-title = "Meditation Apps"
+title = "Bigleg's Balcony"
 logo = ""
-iconLogo = "tabler:coffee"
+iconLogo = "tabler:brush"
 
 [general.seo]
-name = "Cafe Directory"
-description = "Find the best nuxt starter kits."
-url = "https://nuxtstarters.com"
+name = "Bigleg's Balcony - Thailand Street Art"
+description = "Thailand street art directory. Artist-submitted. Culturally documented."
+url = "https://biglegsbalcony.com"
 
 [directoryData.source]
-name = "json"    # default, mock, sheets, json
+name = "json"
 links = "normal"
 
 [directoryData.tagPages]
-title = "{0} Apps"
+title = "{0} Works"
 
 [directoryData.search]
-placeholder = "Search among {0} listings of this directory :)"
+placeholder = "Search among {0} artworks"
 
 [[directoryData.tags]]
-key = "breathing"
-name = "Breathing"
-color = "blue"
-emoji = "👃"
-description = "Breathing techniques are a popular feature in meditation apps."
+key = "permanent"
+name = "Permanent"
+color = "zinc"
+emoji = "🏛️"
+description = "Commissioned or long-standing artworks on maintained buildings."
 
 [[directoryData.tags]]
-key = "sleep"
-name = "Sleep"
+key = "at-risk"
+name = "At Risk"
+color = "red"
+emoji = "⚠️"
+description = "Abandoned sites or locations slated for redevelopment."
+
+[[directoryData.tags]]
+key = "verified"
+name = "Verified"
 color = "green"
-emoji = "💤"
-description = "Some apps include music that slowly goes away to help you sleep better and rest."
-
-[[directoryData.tags]]
-key = "meditation"
-name = "Meditation"
-color = "purple"
-emoji = "🧘‍♂️"
-description = "A meditation for your life. It's a great way to relax and clear your mind. It's also a great way to improve your sleep."
-
-[[directoryData.tags]]
-key = "yoga"
-name = "Yoga"
-color = "purple"
-emoji = "🧘‍♂️"
-description = "A yoga for your life."
-
-[[directoryData.tags]]
-key = "timer"
-name = "Timer"
-color = "green"
-emoji = "⏰"
-description = "Timers can be used to track how much you meditate."
+emoji = "✅"
+description = "The location of this artwork has been confirmed by a moderator."
 
 [header.banner]
-show = true
-text = "Follow mark_bruderer on twitter."
-link = "https://x.com/intent/follow?screen_name=mark_bruderer"
-brandText = "AI Agent Libraries"
+show = false
+text = ""
+link = ""
+brandText = "Bigleg's Balcony"
 
 [header.navbar]
 colorModeSelector = true
 
 [[header.navbar.links]]
-name = "Blog"
-href = "/blog"
+name = "Provinces"
+href = "/provinces"
 
 [[header.navbar.links]]
-name = "Analytics"
-href = "https://us.posthog.com/shared/vHlGCcSqPjGH4r_QijaXSETtmN9J-g"
-target = "_blank"
+name = "Artists"
+href = "/artists"
 
 [header.actionButton]
-text = "Submit an app"
-href = "https://tally.so"
+text = "Submit Artwork"
+href = "/submit"
 
 [footer]
-description = "Best directory for my niche."
+description = "Thailand street art. Artist-submitted. Culturally documented."
 
 [footer.socials.x]
-link = "https://x.com/mark_bruderer"
+link = ""
 
 [footer.socials.youtube]
-link = "https://www.youtube.com/@mark_hacks"
+link = ""

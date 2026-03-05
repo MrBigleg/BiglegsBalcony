@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig, envField } from 'astro/config';
-import vue from '@astrojs/vue';
+import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import icon from 'astro-icon';
 import sitemap from '@astrojs/sitemap';
@@ -9,9 +9,12 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://bestmeditationapps.com",
+  site: "https://biglegsbalcony.com",
+  image: {
+    domains: ['images.unsplash.com', 'plus.unsplash.com'],
+  },
   integrations: [
-    vue(),
+    react(),
     mdx(),
     icon(),
     sitemap()

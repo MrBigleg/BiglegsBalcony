@@ -1,0 +1,31 @@
+---
+import Wide from "@/layouts/Wide.astro";
+import Grid from "@/components/directory/Grid.astro";
+import { Button } from "@/components/ui/button";
+---
+
+<Wide>
+    <div
+        class="flex flex-col items-center justify-center pt-10 pb-20 text-center not-prose"
+    >
+        <h1
+            class="text-5xl font-bold tracking-tight mb-4 text-zinc-900 dark:text-zinc-50"
+        >
+            Bigleg's Balcony
+        </h1>
+        <p
+            class="text-zinc-500 dark:text-zinc-400 text-xl max-w-2xl mb-8 mx-auto"
+        >
+            Thailand street art. Artist-submitted. Culturally documented.
+        </p>
+
+        <div class="flex flex-row gap-4 justify-center">
+            <Button variant="default" client:load>Browse by Province</Button>
+            <Button variant="outline" client:load>Browse Latest</Button>
+        </div>
+    </div>
+
+    <div class="not-prose">
+        <Grid />
+    </div>
+</Wide>

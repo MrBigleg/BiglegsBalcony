@@ -1,0 +1,62 @@
+---
+import Wide from "@/layouts/Wide.astro";
+import { getCollection } from "astro:content";
+import PureGrid from "@/components/directory/PureGrid.astro";
+
+export async function getStaticPaths() {
+    const allListings = await getCollection("directory");
+
+    // Extract unique provinces
+    const provinces = [
+        ...new Set(
+            allListings.map((item) => item.data.province).filter(Boolean),
+        ),
+    ];
+
+    return provinces.map((province) => {
+        const provinceName = String(province);
+        return {
+            params: { slug: provinceName.toLowerCase().replace(/\s+/g, "-") },
+            props: {
+                province,
+                listings: allListings.filter(
+                    (item) => item.data.province === province,
+                ),
+            },
+        };
+    });
+}
+
+const { province, listings } = Astro.props;
+---
+
+<Wide>
+    <div class="pt-10 pb-10 not-prose">
+        <div class="mb-10 border-b border-zinc-200 dark:border-zinc-800 pb-10">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1
+                        class="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50"
+                    >
+                        {province || "Unknown"} Artworks
+                    </h1>
+                    <p class="text-zinc-500 dark:text-zinc-400 mt-2">
+                        Viewing {listings?.length || 0} approved {
+                            listings?.length === 1 ? "artwork" : "artworks"
+                        } located in {province || "Unknown"}.
+                    </p>
+                </div>
+                <a
+                    href="/provinces"
+                    class="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                    &larr; Back to Regions
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <PureGrid listings={listings} />
+        </div>
+    </div>
+</Wide>
